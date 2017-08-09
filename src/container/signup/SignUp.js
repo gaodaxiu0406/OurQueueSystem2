@@ -23,13 +23,15 @@ export default  class SignUp extends Component{
         let password=this.refs.password.value;
         let cpwd=this.refs.cpwd.value;
         utils.saveUser({nickname,tel,password,cpwd});
-        console.log(/^1[3-8]\d{9}$/.test(tel));
         if(nickname&&password&&cpwd&&tel){
             if(!(/^1([3-8])(\d{9})$/.test(tel))){
                 alert('您输入的手机号不存在')
             }else if(!(password===cpwd)){
                 alert('两次输入的密码不匹配o(╥﹏╥)o')
-            }else{
+            }else if(password.length<6){
+                alert('请输入6位以上的密码哦~')
+            }
+            else{
                 let data = {
                     nickname: this.refs.nickname.value,
                     tel: this.refs.tel.value,

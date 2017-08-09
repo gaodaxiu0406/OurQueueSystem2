@@ -16,11 +16,11 @@ class SignIn extends Component{
         this.state={title:'登录'}
     }
     handleClick=()=>{
-        console.log(this.props);
+        // console.log(this.props,222222);
         let data={
             nickname:this.refs.username.value,
-            pwd:this.refs.password.value}
-        console.log(data);
+            password:this.refs.password.value};
+        // console.log(data,11111111);
         ajax({
             method:'post',
             url:'http://localhost:8000/signin',
@@ -28,20 +28,18 @@ class SignIn extends Component{
             data:data,
             headers:{} }).then((result)=>{
             result=JSON.parse(result);
-            if(result=="ok"){
+            if(result.nickname==data.nickname&&result.password==data.password){
                 this.props.getUserInfo(data);
-                this.props.history.push("/index")
-                console.log(this.props);
+                this.props.history.push("/index");
+                alert('恭喜您登录成功(*￣︶￣*)!')
+                // console.log(this.props,3333333);
             }else{
                 alert("用户名或密码错误")
             }
-
-
         }).catch((err)=>{
             console.log(err);
         });
-
-    }
+    };
     render(){
         return (
             <div>
@@ -70,6 +68,6 @@ let mapStateToProps=state=>({
 });
 let mapDispatchToProps=dispatch=>({
     getUserInfo:(text)=>dispatch({type:"GET_USERINFO",text})
-})
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(SignIn)

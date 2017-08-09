@@ -23,18 +23,18 @@ app.post('/signup',function(req,res){
 });
 app.post('/signin',function(req,res){
     let users=JSON.parse(fs.readFileSync("../mock/api/user.json","utf-8"));
-    console.log(req.body);
-    let user=users.find((item)=>(item.nickname==req.body.nickname))
+    // console.log(req.body,users);
+    let user=users.find((item)=>(item.nickname==req.body.nickname));
     console.log(user);
-    if(user){
-        user="ok"
-    }else{
-        user="fail"
-    }
+    // if(user){
+    //     user="ok"
+    // }else{
+    //     user="fail"
+    // }
     res.send(JSON.stringify(user));
 });
 
-app.post('/info',function(req,res){
+/*app.post('/info',function(req,res){
     // console.log(req.body);
     let obj = {
         code:100,
@@ -44,10 +44,10 @@ app.post('/info',function(req,res){
         ]
     };
     res.send(obj);
-});
-app.get('/list',()=>{
-
-});
+});*/
+// app.get('/list',()=>{
+//
+// });
 // let category = require('./routes/category');
 // app.use('/user',user);
 // app.use('/category',category);

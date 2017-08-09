@@ -1,6 +1,4 @@
-/**
- * Created by ZhaoQiHui on 2017/8/7.
- */
+
 import React,{Component} from "react";
 import {
     HashRouter as Router,Route,Link,Switch
@@ -49,11 +47,12 @@ class Index extends Component{
                     <div><img src={o3}/></div>
                     <div><img src={o4}/></div>
                 </ReactSwipe>
-                {/*待判断*/}
-                <div className="sing">
-                    <Link to="/signup">注册</Link>
-                    <Link to="/signin">登录</Link>
-                </div>
+                {
+                    this.props.nickname==this.state.title?<div className="sing">
+                        <Link to="/signup">注册</Link>
+                        <Link to="/signin">登录</Link>
+                    </div>:null
+                }
 
                 <div>
                     <p className="toDayList">今日热卖</p>
@@ -84,8 +83,8 @@ class Index extends Component{
     }
 }
 let mapStateToProps=state=>({
-nickname:state.nickname
+    nickname:state.nickname
 });
-let mapDispatchToProps=dispatch=>({})
+let mapDispatchToProps=dispatch=>({});
 
 export default connect(mapStateToProps,mapDispatchToProps)(Index)
