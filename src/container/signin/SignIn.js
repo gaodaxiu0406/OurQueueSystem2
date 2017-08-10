@@ -16,9 +16,9 @@ class SignIn extends Component{
         this.state={title:'登录'}
     }
     handleClick=()=>{
-        // console.log(this.props,222222);
+        console.log(this.props,222222);
         let data={
-            nickname:this.refs.username.value,
+            nickname:this.refs.nickname.value,
             password:this.refs.password.value};
         // console.log(data,11111111);
         ajax({
@@ -27,9 +27,10 @@ class SignIn extends Component{
             async:true,
             data:data,
             headers:{} }).then((result)=>{
+            // console.log(result,1111111);
             result=JSON.parse(result);
             if(result.nickname==data.nickname&&result.password==data.password){
-                this.props.getUserInfo(data);
+                this.props.getUserInfo(result);
                 this.props.history.push("/index");
                 alert('恭喜您登录成功(*￣︶￣*)!')
                 // console.log(this.props,3333333);
@@ -47,12 +48,12 @@ class SignIn extends Component{
                 <img className="avatar" src="../../../static/img/avatar.png" alt="个人头像"/>
                 <form id="form" method="get">
                     <div className="form-group">
-                        <label htmlFor="name">昵称</label>
-                        <input id="name" ref="username" type="text" placeholder="请输入您的用户名"/>
+                        <label htmlFor="nickname">昵称</label>
+                        <input id="nickname" ref="nickname" type="text" placeholder="请输入您的用户名"/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="name">密码</label>
-                        <input id="name" ref="password" type="text" placeholder="请输入您的密码"/>
+                        <label htmlFor="password">密码</label>
+                        <input id="password" ref="password" type="password" placeholder="请输入您的密码"/>
                     </div>
                     <div className="form-group">
                         <button id="register" onClick={this.handleClick}>立即登录</button>

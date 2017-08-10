@@ -1,6 +1,4 @@
-/**
- * Created by ZhaoQiHui on 2017/8/8.
- */
+
 import React,{Component} from "react";
 import itemList from "../../../mock/orderList"
 import ItemDetail from '../../container/itemDetail/itemDetail.js'
@@ -16,9 +14,7 @@ export default  class HotList extends Component{
                         return(
                             <li className="item" key={index}>
                                 <Link to={"/itemDetail"}>
-                                    <Route path="/itemDetail" component={ItemDetail}
-
-                                    />
+                                    <Route path="/itemDetail" component={ItemDetail}/>
                                     <img src={item.img}/>
                                     <p>{item.title}</p>
                                     <p>当月销量:{item.count}</p>

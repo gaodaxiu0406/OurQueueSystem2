@@ -83,7 +83,9 @@ class Index extends Component{
     }
 }
 let mapStateToProps=state=>({
-    nickname:state.nickname
+    nickname:state.nickname,
+    password:state.password,
+    tel:state.tel
 });
 let mapDispatchToProps=dispatch=>({});
 

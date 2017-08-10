@@ -44,6 +44,7 @@ export default  class SignUp extends Component{
                     async:true,
                     data:data,
                     headers:{} }).then((result)=>{
+                    console.log(data,11111111111111111);
                     console.log(result);
                 }).catch((err)=>{
                     console.log(err);

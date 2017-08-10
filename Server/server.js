@@ -25,13 +25,16 @@ app.post('/signin',function(req,res){
     let users=JSON.parse(fs.readFileSync("../mock/api/user.json","utf-8"));
     // console.log(req.body,users);
     let user=users.find((item)=>(item.nickname==req.body.nickname));
-    console.log(user);
-    // if(user){
-    //     user="ok"
-    // }else{
-    //     user="fail"
-    // }
+    // console.log(user);
     res.send(JSON.stringify(user));
+});
+app.get('/info',function(req,res){
+/*    let users=JSON.parse(fs.readFileSync("../mock/api/user.json","utf-8"));
+    console.log(req.body,res);
+    let user=users.filter((item)=>(item.nickname!=req.body.nickname));
+    console.log(user);*/
+    // res.send(JSON.stringify(user));
+
 });
 
 /*app.post('/info',function(req,res){
