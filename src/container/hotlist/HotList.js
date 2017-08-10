@@ -25,7 +25,7 @@ class HotList extends Component{
     componentWillMount(){
         ajax({
             method:'get',
-            url:'http://localhost:8000/list',
+            url:'http://localhost:8001/list',
             async:true,
         }).then((res)=>{
             res=res.split("=")[1];

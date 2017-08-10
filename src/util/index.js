@@ -1,7 +1,7 @@
 let ajax = ({ method='', url='', async=true, data={}, headers={} }) => {
     let xhr = new XMLHttpRequest();
     xhr.open(method, url, async);
-
+    xhr.withCredentials = true;
     for ( let key in headers ) {
         xhr.setRequestHeader(key, headers[key]);
     }

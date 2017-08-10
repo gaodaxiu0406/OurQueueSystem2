@@ -40,7 +40,7 @@ export default  class SignUp extends Component{
                 };
                 ajax({
                     method:'post',
-                    url:'http://localhost:8000/signup',
+                    url:'http://localhost:8001/signup',
                     async:true,
                     data:data,
                     headers:{} }).then((result)=>{

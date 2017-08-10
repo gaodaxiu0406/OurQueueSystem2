@@ -44,7 +44,7 @@ class Info extends Component{
         // console.log(this.props, 222222);
         ajax({
             method: 'post',
-            url: 'http://localhost:8000/signin',
+            url: 'http://localhost:8001/signin',
             async: true,
             headers: {}
         }).then((result) => {

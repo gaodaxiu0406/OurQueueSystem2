@@ -16,6 +16,16 @@ import Footer from "../../components/footer/Footer";
 import ItemDetail from "../../container/itemDetail/ItemDetail";
 import {connect} from "react-redux";
 import HotList from "../hotlist/HotList";
+ajax({
+    method:'get',
+    url:'http://localhost:8001/other',
+    async:true,
+    headers:{} }).then((result)=>{
+    console.log(result,1111111);
+    // result=JSON.parse(result);
+}).catch((err)=>{
+    console.log(err);
+});
 class Index extends Component{
     constructor(){
         super();
@@ -45,7 +55,6 @@ class Index extends Component{
                         <Link to="/signin">登录</Link>
                     </div>:''
                 }
-
                 <div>
                     <p className="toDayList">~≈今日热卖≈~</p>
                     <HotList/>
