@@ -21,10 +21,11 @@ class Footer extends Component {
             method:'get',
             url:'http://localhost:8001/car'
         }).then((res)=>{
+
             let carLength=JSON.parse(res).length;
-            this.setState({
-                carLength:carLength
-            })
+            // this.setState({
+            //     carLength:carLength
+            // })
         })
         }
     render() {
@@ -53,9 +54,11 @@ class Footer extends Component {
         )
     }
 }
-let mapStateToProps=state=>({
-    // length:Number(state.goodsReducer.length)?state.goodsReducer.length:0
-});
+let mapStateToProps=state=>{
+    console.log(Number(state.goodsReducer.length),1111111);
+    return  {
+    length:Number(state.goodsReducer.length)?state.goodsReducer.length:0
+}};
 let mapDispatchToProps=dispatch=>({
 
 });
