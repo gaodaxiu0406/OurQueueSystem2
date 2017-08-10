@@ -93,7 +93,7 @@ import comment from '../../../mock/comment'
                            }
                        </ul>
                    </div></div>
-                   <Footer length={this.state.carLength}/>
+                   {/*<Footer length={this.state.carLength}/>*/}
                </div>
            )
        }else {

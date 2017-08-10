@@ -56,7 +56,7 @@ export default  class Category extends Component{
                 <div className="menuList">
                 <Route path="/category/hotlist" component={HotList}></Route>
                 </div>
-                <Footer/>
+
             </div>
 
         )

@@ -13,7 +13,7 @@ export default  class Pay extends Component{
         return (
             <div>
                 <Header title={this.state.title}/>
-                <Footer/>
+
             </div>
         )
     }

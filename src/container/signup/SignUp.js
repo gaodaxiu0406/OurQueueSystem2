@@ -86,7 +86,7 @@ export default  class SignUp extends Component{
                 <div className="form-group">
                     <button onClick={this.handleClick}>立即注册</button>
                 </div>
-                <Footer/>
+
             </div>
         )
     }

@@ -38,6 +38,7 @@ ReactDOM.render(
                     <Route path="/pay" component={Pay}></Route>
                 </Switch>
             </Router>
+            <Footer/>
         </div>
     </Provider>
     ,

@@ -66,7 +66,7 @@ class Index extends Component{
                     <p className="toDayList">~≈今日热卖≈~</p>
                     <HotList/>
                 </div>
-                <Footer/>
+
             </div>
         )
     }

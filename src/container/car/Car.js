@@ -78,7 +78,7 @@ export default  class Car extends Component{
                     <p>请输入到店时间</p>
                     <input type="time"/>
                 </div>
-                <Footer/>
+
             </div>
         )
     }

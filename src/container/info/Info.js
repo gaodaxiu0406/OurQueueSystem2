@@ -108,7 +108,7 @@ class Info extends Component{
                         <button type="button" onClick={this.handleClick} id="register">退出登录</button>
                     </div>
                 </form>
-                <Footer/>
+
             </div>
         )
     }
