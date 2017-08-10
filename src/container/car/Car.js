@@ -1,12 +1,27 @@
 
 import React,{Component} from "react";
 import ReactDOM from 'react-dom';
+import {ajax} from '../../util/index';
 import Header from "../../components/header/Header";
 import "./car.less"
+import Footer from '../../components/footer/Footer';
 export default  class Car extends Component{
     constructor(){
         super();
         this.state={title:'我的购物车',count:0}
+    }
+    componentWillMount(){
+        ajax({
+            method:'get',
+            url:'http://localhost:8001/car',
+        }).then((res)=>{
+            let carLength=JSON.parse(res).length;
+            console.log(carLength,9999999999);
+            this.setState({carLength});
+            this.props.addGoods({
+                carLength
+            })
+        });
     }
     handleClickM=()=>{
         this.setState(x=>(
@@ -63,6 +78,7 @@ export default  class Car extends Component{
                     <p>请输入到店时间</p>
                     <input type="time"/>
                 </div>
+                <Footer/>
             </div>
         )
     }

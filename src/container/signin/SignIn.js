@@ -4,6 +4,7 @@
 import './signin.less'
 import React,{Component} from "react";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import {connect} from "react-redux";
 import {ajax} from '../../util/index';
 import {
@@ -59,6 +60,7 @@ class SignIn extends Component{
                         <button id="register" onClick={this.handleClick}>立即登录</button>
                     </div>
                 </form>
+                <Footer/>
             </div>
         )
     }

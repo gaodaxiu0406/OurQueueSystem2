@@ -3,6 +3,7 @@
  */
 import React,{Component} from "react";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 export default  class Pay extends Component{
     constructor(){
         super();
@@ -12,7 +13,7 @@ export default  class Pay extends Component{
         return (
             <div>
                 <Header title={this.state.title}/>
-                Pay
+                <Footer/>
             </div>
         )
     }

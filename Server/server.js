@@ -46,6 +46,17 @@ app.get('/list',(req,res)=>{
     let data=fs.readFileSync(path.resolve('../mock/orderList.js'),'utf-8');
     res.send(data)
 });
+app.post('/additem',(req,res)=>{
+    let car=JSON.parse(fs.readFileSync(path.resolve('../mock/api/Car.json'),'utf-8'));
+    car.push(req.body.item);
+    fs.writeFileSync('../mock/api/Car.json',JSON.stringify(car));
+    console.log(car.length);
+    res.send(car)
+});
+app.get('/car',(req,res)=>{
+    let car=JSON.parse(fs.readFileSync(path.resolve('../mock/api/Car.json'),'utf-8'));
+    res.send(car)
+});
 app.post('/itemInfo',(req,res)=>{
     res.send(req.body)
 });

@@ -1,5 +1,7 @@
 
 import React, {Component} from 'react';
+import {ajax} from '../../util/index'
+import {connect} from "react-redux";
 
 import {
     HashRouter as Router, Route, Link, Switch
@@ -7,14 +9,32 @@ import {
 // import "../../font/iconfont.css"
 import './footer.less';
 
-export default class Footer extends Component {
+class Footer extends Component {
+    constructor(){
+        super();
+        this.state={
+            carLength:0
+        }
+    }
+        componentWillMount(){
+        ajax({
+            method:'get',
+            url:'http://localhost:8001/car'
+        }).then((res)=>{
+            let carLength=JSON.parse(res).length;
+            this.setState({
+                carLength:carLength
+            })
+        })
+        }
     render() {
+        console.log(this.props,777777);
         return (
             <Router>
                 <div className="footer">
                     <div className="shopCar">
                         <Link to="/car">
-                            <span>0</span>
+                            <span>{this.props.length}</span>
                             <p> </p>
                         </Link>
                     </div>
@@ -33,3 +53,11 @@ export default class Footer extends Component {
         )
     }
 }
+let mapStateToProps=state=>({
+    // length:Number(state.goodsReducer.length)?state.goodsReducer.length:0
+});
+let mapDispatchToProps=dispatch=>({
+
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Footer)

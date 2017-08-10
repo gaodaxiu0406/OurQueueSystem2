@@ -3,6 +3,7 @@ import './signup.less';
 import {ajax} from '../../util/index';
 import React,{Component} from "react";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import {
     HashRouter as Router,Route,Link,Switch
 } from "react-router-dom";
@@ -85,6 +86,7 @@ export default  class SignUp extends Component{
                 <div className="form-group">
                     <button onClick={this.handleClick}>立即注册</button>
                 </div>
+                <Footer/>
             </div>
         )
     }

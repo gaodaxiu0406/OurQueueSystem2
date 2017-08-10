@@ -3,7 +3,8 @@ import './info.less'
 import React,{Component} from "react";
 import Header from "../../components/header/Header";
 import {ajax} from '../../util/index.js';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import Footer from '../../components/footer/Footer';
 
 
 class Info extends Component{
@@ -41,10 +42,25 @@ class Info extends Component{
             });
             console.log('click');
     };*/
+    componentWillMount(){
+        ajax({
+            method:'get',
+            url:'http://localhost:8001/other',
+            async:true,
+            headers:{} }).then((result)=>{
+            console.log(result,1111111);
+            result=JSON.parse(result);
+            this.setState(result);
+            this.props.getUserInfo(result);
+            // result=result=="undefined"?'我的账号':result.nickname;
+        }).catch((err)=>{
+            console.log(err);
+        });
+    }
     handleClick=()=> {
         // console.log(this.props, 222222);
         ajax({
-            method: 'post',
+            method: 'get',
             url: 'http://localhost:8001/signin',
             async: true,
             headers: {}
@@ -66,7 +82,7 @@ class Info extends Component{
 
                     <div className="form-group">
                         <label htmlFor="name">昵称</label>
-                        <input id="name" name="name" type="text" placeholder={this.props.nickname}/>
+                        <input id="name" name="name" type="text" placeholder={this.state.nickname}/>
                     </div>
                     <div className="form-group form-group-sex">
                         <label htmlFor="name">性别</label>
@@ -78,12 +94,12 @@ class Info extends Component{
                     <div className="form-group">
                         <label htmlFor="password">密码</label>
                         {
-                            this.props.password?<input id="password" type="password" placeholder={"提示 您的密码长度为:"+this.props.password.length+"位"}/>:<input id="password" type="password" placeholder=''/>
+                            this.state.password?<input id="password" type="password" placeholder={"提示 您的密码长度为:"+this.state.password.length+"位"}/>:<input id="password" type="password" placeholder=''/>
                         }
                     </div>
                     <div className="form-group">
                         <label htmlFor="tel">手机号</label>
-                        <input id="password" type="text" placeholder={this.props.tel}/>
+                        <input id="password" type="text" placeholder={this.state.tel}/>
                     </div>
                     {/*<div className="form-group">
                         <button type="button" onClick={this.handleSubmit} id="register">保存修改</button>
@@ -92,14 +108,15 @@ class Info extends Component{
                         <button type="button" onClick={this.handleClick} id="register">退出登录</button>
                     </div>
                 </form>
+                <Footer/>
             </div>
         )
     }
 }
 let mapStateToProps=state=>({
-    nickname:state.nickname,
+    /*nickname:state.nickname,
     password:state.password,
-    tel:state.tel
+    tel:state.tel*/
 });
 let mapDispatchToProps=dispatch=>({
     getUserInfo:(text)=>dispatch({type:"GET_USERINFO",text})
