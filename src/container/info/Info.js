@@ -25,25 +25,38 @@ class Info extends Component{
     //     });
     //     console.log('click');
     // }
+/*    handleSubmit=()=>{
+        ajax({
+                method:'post',
+                url:'http://localhost:8000/signin',
+                async:true,
+                data:{
+                    name:"aa"
+                },
+                headers:{} }).then((result)=>{
+                console.log(result,333333);
+            }).catch((err)=>{
+                console.log(err);
+            });
+            console.log('click');
+    };*/
     handleClick=()=> {
-        console.log(this.props, 222222);
+        // console.log(this.props, 222222);
         ajax({
             method: 'post',
             url: 'http://localhost:8000/signin',
             async: true,
-            // data:this.refs.nickname,
             headers: {}
         }).then((result) => {
             // result = JSON.parse(result);
+            console.log(result,222222);
             alert('您已退出登录！');
             this.props.history.push("/signin");
-            data = "(｡･∀･)ﾉﾞ嗨  主银~~!!";
-            this.props.getUserInfo(data);
-            // console.log(this.props,3333333);
+            this.props.getUserInfo({nickname:'请登录您的账户',password:'',tel:''});
         }).catch((err) => {
             console.log(err);
         });
-    }
+    };
     render(){
         return (
             <div>
@@ -63,13 +76,17 @@ class Info extends Component{
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">密码</label>
-                        <span style={{color:'black',fontSize:'16px',display:'block'}}>1{this.props.password}</span>
-                        {/*<input id="password" type="text" placeholder=/>*/}
+                        {
+                            this.props.password?<input id="password" type="password" placeholder={"提示 您的密码长度为:"+this.props.password.length+"位"}/>:<input id="password" type="password" placeholder=''/>
+                        }
                     </div>
                     <div className="form-group">
                         <label htmlFor="tel">手机号</label>
-                        {this.props.tel}
+                        <input id="password" type="text" placeholder={this.props.tel}/>
                     </div>
+                    {/*<div className="form-group">
+                        <button type="button" onClick={this.handleSubmit} id="register">保存修改</button>
+                    </div>*/}
                     <div className="form-group">
                         <button type="button" onClick={this.handleClick} id="register">退出登录</button>
                     </div>

@@ -1,6 +1,7 @@
+
 module.exports = [
     {
-        id: Date.now(),
+        id: 1,
         img: '../src/img/图层 3.png',
         title: '紫米粥',
         count: 3,
@@ -8,7 +9,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 2,
         img: '../src/img/图层 2.png',
         title: '皮蛋瘦肉粥',
         count: 1,
@@ -16,14 +17,14 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 3,
         img: '../src/img/图层 4.png',
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
         commentState: 2
     }, {
-        id: Date.now(),
+        id: 4,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
@@ -31,7 +32,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 5,
         img: '../src/img/图层 31.png',
         title: '鸡丝木耳粥',
         count: 1,
@@ -39,7 +40,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 6,
         img: '../src/img/图层 3.png',
         title: '紫米粥',
         count: 3,
@@ -47,7 +48,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 7,
         img: '../src/img/图层 2.png',
         title: '皮蛋瘦肉粥',
         count: 1,
@@ -55,14 +56,14 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 8,
         img: '../src/img/图层 4.png',
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
         commentState: 2
     }, {
-        id: Date.now(),
+        id: 9,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
@@ -70,7 +71,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 10,
         img: '../src/img/图层 31.png',
         title: '鸡丝木耳粥',
         count: 1,
@@ -78,7 +79,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 11,
         img: '../src/img/图层 3.png',
         title: '紫米粥',
         count: 3,
@@ -86,7 +87,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 12,
         img: '../src/img/图层 2.png',
         title: '皮蛋瘦肉粥',
         count: 1,
@@ -94,14 +95,14 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 13,
         img: '../src/img/图层 4.png',
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
         commentState: 2
     }, {
-        id: Date.now(),
+        id: 14,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
@@ -109,7 +110,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 15,
         img: '../src/img/图层 31.png',
         title: '鸡丝木耳粥',
         count: 1,
@@ -117,7 +118,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 16,
         img: '../src/img/图层 3.png',
         title: '紫米粥',
         count: 3,
@@ -125,7 +126,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 17,
         img: '../src/img/图层 2.png',
         title: '皮蛋瘦肉粥',
         count: 1,
@@ -133,14 +134,14 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 18,
         img: '../src/img/图层 4.png',
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
         commentState: 2
     }, {
-        id: Date.now(),
+        id: 19,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
@@ -148,7 +149,7 @@ module.exports = [
         commentState: 0
     },
     {
-        id: Date.now(),
+        id: 20,
         img: '../src/img/图层 31.png',
         title: '鸡丝木耳粥',
         count: 1,

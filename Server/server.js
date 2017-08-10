@@ -2,6 +2,23 @@ let express = require('express');
 let bodyParser=require('body-parser');
 let fs=require('fs');
 let app = express();
+let path=require('path');
+let session=require('express-session');
+app.use(session({
+    secret: 'cat',//加密的密钥
+    resave: true,//每次客户端请求服务器的时候 都要重新保存session
+    saveUninitialized: true,//保存未初始化的session
+    cookie: { secure: true }
+}));
+app.get('/write',function (req,res) {
+    //每当使用了session中间件之后 会在请求对象req上多一个session属性 {name:zfpx}
+    //req.send
+    req.session.name='zfpx';
+    res.end('write ok');
+});
+app.get('/read',function (req,res) {
+    res.end(req.session.name);
+});
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -28,14 +45,27 @@ app.post('/signin',function(req,res){
     // console.log(user);
     res.send(JSON.stringify(user));
 });
-app.get('/info',function(req,res){
-/*    let users=JSON.parse(fs.readFileSync("../mock/api/user.json","utf-8"));
+app.get('/list',(req,res)=>{
+    let data=fs.readFileSync(path.resolve('../mock/orderList.js'),'utf-8');
+// data=JSON.stringify(data);
+//     console.log(data);
+    res.send(data)
+});
+app.post('/itemInfo',(req,res)=>{
+    console.log(req.body);
+    res.send(req.body)
+});
+
+
+
+/*app.get('/info',function(req,res){
+    let users=JSON.parse(fs.readFileSync("../mock/api/user.json","utf-8"));
     console.log(req.body,res);
     let user=users.filter((item)=>(item.nickname!=req.body.nickname));
-    console.log(user);*/
+    console.log(user);
     // res.send(JSON.stringify(user));
 
-});
+});*/
 
 /*app.post('/info',function(req,res){
     // console.log(req.body);

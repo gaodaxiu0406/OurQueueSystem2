@@ -1,16 +1,24 @@
-/**
- * Created by ZhaoQiHui on 2017/8/7.
- */
+
 import React,{Component} from "react";
+import ReactDOM from 'react-dom';
 import Header from "../../components/header/Header";
 import "./car.less"
 export default  class Car extends Component{
     constructor(){
         super();
-        this.state={title:'我的购物车'}
+        this.state={title:'我的购物车',count:0}
     }
+    handleClickM=()=>{
+        this.setState(x=>(
+            {count:x.count-1}
+            ));
+    };
+    handleClickAdd=()=>{
+        this.setState(x=>(
+            {count:x.count+1}
+        ));
+    };
     render(){
-        console.log(222);
         return (
             <div className="Car">
                 <Header title={this.state.title}/>
@@ -20,9 +28,9 @@ export default  class Car extends Component{
                         <span></span>
                         <div>
                             <p>price</p>
-                            <span>-</span>
-                            <span>2</span>
-                            <span>+</span>
+                            <span onClick={this.handleClickM.bind(this)}>-</span>
+                            <span>{this.state.count}</span>
+                            <span onClick={this.handleClickAdd.bind(this)}>+</span>
                         </div>
                     </li>
                     <li>
@@ -30,9 +38,9 @@ export default  class Car extends Component{
                         <span></span>
                         <div>
                             <p>price</p>
-                            <span>-</span>
-                            <span>2</span>
-                            <span>+</span>
+                            <span onClick={this.handleClickM.bind(this)}>-</span>
+                            <span>{this.state.count}</span>
+                            <span onClick={this.handleClickAdd.bind(this)}>+</span>
                         </div>
                     </li>
                     <li>
@@ -40,9 +48,9 @@ export default  class Car extends Component{
                         <span></span>
                         <div>
                             <p>price</p>
-                            <span>-</span>
-                            <span>2</span>
-                            <span>+</span>
+                            <span onClick={this.handleClickM.bind(this)}>-</span>
+                            <span>{this.state.count}</span>
+                            <span onClick={this.handleClickAdd.bind(this)}>+</span>
                         </div>
                     </li>
 

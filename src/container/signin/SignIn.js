@@ -27,7 +27,7 @@ class SignIn extends Component{
             async:true,
             data:data,
             headers:{} }).then((result)=>{
-            // console.log(result,1111111);
+            console.log(result,1111111);
             result=JSON.parse(result);
             if(result.nickname==data.nickname&&result.password==data.password){
                 this.props.getUserInfo(result);

@@ -3,7 +3,7 @@
  */
 import React,{Component} from "react";
 import itemList from "../../../mock/orderList"
-import ItemDetail from '../../container/itemDetail/itemDetail.js'
+import ItemDetail from '../../container/itemDetail/ItemDetail.js'
 import {
     HashRouter as Router,Route,Link,Switch
 } from "react-router-dom";

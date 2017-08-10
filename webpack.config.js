@@ -7,6 +7,7 @@ module.exports={
         path:path.resolve('build'),//出口文件路径
         filename: "bundle.js"//出口文件名称
     },
+    devtool: "source-map",
     module: {
         rules
 :

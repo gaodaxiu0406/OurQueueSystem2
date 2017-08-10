@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

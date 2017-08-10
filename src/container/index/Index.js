@@ -15,22 +15,13 @@ import o4 from '../../img/swiper/download-3.jpg'
 import Footer from "../../components/footer/Footer";
 import ItemDetail from "../../container/itemDetail/ItemDetail";
 import {connect} from "react-redux";
+import HotList from "../hotlist/HotList";
 class Index extends Component{
     constructor(){
         super();
         this.state={title:'(｡･∀･)ﾉﾞ嗨  主银~~!!',
         }
     }
-
-    // componentWillMount(){
-    //     ajax({
-    //         method:'get',
-    //         url:'http://localhost:8000/list',
-    //         async:true,
-    //     }).then((res)=>{
-    //         console.log(res);
-    //     });
-    // }
     render(){
         return (
             <div className="index">
@@ -48,34 +39,16 @@ class Index extends Component{
                     <div><img src={o4}/></div>
                 </ReactSwipe>
                 {
-                    this.props.nickname==this.state.title?<div className="sing">
+                    (this.state.title==this.props.nickname)||(this.props.nickname=='请登录您的账户')?<div className="sing">
+                        <p>立即登录查看最新优惠券</p>
                         <Link to="/signup">注册</Link>
                         <Link to="/signin">登录</Link>
-                    </div>:null
+                    </div>:''
                 }
 
                 <div>
-                    <p className="toDayList">今日热卖</p>
-                    <ul>
-                    {
-                        itemList.map((item,index)=>{
-                            return(
-                                    <li className="item" key={index}>
-                                        <Link to={"/itemDetail/?id:"+encodeURIComponent(item.img)}>
-                                            <Route path="/itemDetail" component={ItemDetail}
-
-                                            />
-                                        <img src={item.img}/>
-                                        <p>{item.title}</p>
-                                        <p>当月销量:{item.count}</p>
-                                        <p>售价:<span>${item.price}</span></p>
-                                        <p>评价条数:{item.commentState}</p>
-                                        </Link>
-                                    </li>
-                            )
-                        })
-                    }
-                    </ul>
+                    <p className="toDayList">~≈今日热卖≈~</p>
+                    <HotList/>
                 </div>
                 <Footer/>
             </div>
