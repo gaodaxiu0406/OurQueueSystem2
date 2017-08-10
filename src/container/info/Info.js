@@ -5,6 +5,7 @@ import Header from "../../components/header/Header";
 import {ajax} from '../../util/index.js';
 import {connect} from 'react-redux'
 
+
 class Info extends Component{
     constructor(){
         super();

@@ -37,6 +37,7 @@
     "react-router-dom": "^4.1.2",
     "react-swipe": "^5.0.8",
     "redux": "^3.7.2",
+    "redux-persist": "^4.8.3",
     "swipe-js-iso": "^2.0.3",
     "swiper": "^3.4.2"
   }

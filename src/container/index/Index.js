@@ -16,26 +16,33 @@ import Footer from "../../components/footer/Footer";
 import ItemDetail from "../../container/itemDetail/ItemDetail";
 import {connect} from "react-redux";
 import HotList from "../hotlist/HotList";
-ajax({
-    method:'get',
-    url:'http://localhost:8001/other',
-    async:true,
-    headers:{} }).then((result)=>{
-    console.log(result,1111111);
-    // result=JSON.parse(result);
-}).catch((err)=>{
-    console.log(err);
-});
+
 class Index extends Component{
     constructor(){
         super();
-        this.state={title:'(｡･∀･)ﾉﾞ嗨  主银~~!!',
-        }
+        this.state={title:'(｡･∀･)ﾉﾞ嗨  主银~~!!'}
+    }
+    componentWillMount(){
+        ajax({
+            method:'get',
+            url:'http://localhost:8001/other',
+            async:true,
+            headers:{} }).then((result)=>{
+            console.log(result,1111111);
+            result=JSON.parse(result);
+            this.props.getUserInfo(result);
+            result=result=="undefined"?'(｡･∀･)ﾉﾞ嗨  主银~~!!':result.nickname;
+            this.setState({
+                title:result
+            });
+        }).catch((err)=>{
+            console.log(err);
+        });
     }
     render(){
         return (
             <div className="index">
-                <Header title={this.props.nickname}/>
+                <Header title={this.state.title}/>
                 <ReactSwipe className="carousel" swipeOptions={{startSlide: 2,
                     speed: 400,
                     auto: 3000,
@@ -49,7 +56,7 @@ class Index extends Component{
                     <div><img src={o4}/></div>
                 </ReactSwipe>
                 {
-                    (this.state.title==this.props.nickname)||(this.props.nickname=='请登录您的账户')?<div className="sing">
+                    (this.state.title=='(｡･∀･)ﾉﾞ嗨  主银~~!!')||(this.state.title=='请登录您的账户')?<div className="sing">
                         <p>立即登录查看最新优惠券</p>
                         <Link to="/signup">注册</Link>
                         <Link to="/signin">登录</Link>
@@ -65,10 +72,10 @@ class Index extends Component{
     }
 }
 let mapStateToProps=state=>({
-    nickname:state.nickname,
-    password:state.password,
-    tel:state.tel
+
 });
-let mapDispatchToProps=dispatch=>({});
+let mapDispatchToProps=dispatch=>({
+    getUserInfo:(text)=>dispatch({type:"GET_USERINFO",text})
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(Index)
