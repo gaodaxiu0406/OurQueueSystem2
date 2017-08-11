@@ -23,16 +23,39 @@ export default  class SignUp extends Component{
         let tel=this.refs.tel.value;
         let password=this.refs.password.value;
         let cpwd=this.refs.cpwd.value;
-        utils.saveUser({nickname,tel,password,cpwd});
-        if(nickname&&password&&cpwd&&tel){
-            if(!(/^1([3-8])(\d{9})$/.test(tel))){
+        // if(nickname&&password&&cpwd&&tel){
+           /* if(!(utils.readUsers().some((item)=>((item.nickname!=nickname)&&(item.tel!=tel))))){
+                utils.saveUser({nickname,tel,password,cpwd});
+            }*/
+            // console.log((utils.readUsers().some((item)=>item.nickname!=nickname)),12345123123);
+            if(utils){
+                if(nickname&&password&&cpwd&&tel){
+                    console.log(1);
+                    if(utils.readUsers().some((item)=>item.nickname==nickname)){
+                        alert('用户名已经被注册')
+                    }else if(utils.readUsers().some((item)=>item.tel==tel)){
+                        alert('手机号已经被注册')
+                    }else if(!(/^1([3-8])(\d{9})$/.test(tel))){
+                        alert('您输入的手机号不存在')
+                    }else if(!(password===cpwd)){
+                        alert('两次输入的密码不匹配o(╥﹏╥)o')
+                    }else if(password.length<6){
+                        alert('请输入6位以上的密码哦~')
+                    }else{
+                        utils.saveUser({nickname,tel,password,cpwd});
+                        this.props.history.push('/signin');
+                    }
+                }else{
+                    alert('对不起，您的注册信息填写不完整,请填写完整后提交(￣︶￣)!')
+                     }
+            }
+            /*if(!(/^1([3-8])(\d{9})$/.test(tel))){
                 alert('您输入的手机号不存在')
             }else if(!(password===cpwd)){
                 alert('两次输入的密码不匹配o(╥﹏╥)o')
             }else if(password.length<6){
                 alert('请输入6位以上的密码哦~')
-            }
-            else{
+            }else{
                 let data = {
                     nickname: this.refs.nickname.value,
                     tel: this.refs.tel.value,
@@ -45,7 +68,6 @@ export default  class SignUp extends Component{
                     async:true,
                     data:data,
                     headers:{} }).then((result)=>{
-                    console.log(data,11111111111111111);
                     console.log(result);
                 }).catch((err)=>{
                     console.log(err);
@@ -53,8 +75,8 @@ export default  class SignUp extends Component{
                 this.props.history.push('/signin');
             }
         }else{
-            alert('对不起，您的注册信息填写不完整,请填写完整后提交(￣︶￣)!')
-        }
+            alert('对不起，您的注册信息填写不完整,请填写完整后提交(￣︶￣)!')*/
+        // }
 
     };
     render(){
@@ -86,7 +108,6 @@ export default  class SignUp extends Component{
                 <div className="form-group">
                     <button onClick={this.handleClick}>立即注册</button>
                 </div>
-
             </div>
         )
     }

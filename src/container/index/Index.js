@@ -16,6 +16,8 @@ import Footer from "../../components/footer/Footer";
 import ItemDetail from "../../container/itemDetail/ItemDetail";
 import {connect} from "react-redux";
 import HotList from "../hotlist/HotList";
+import utils from '../../localStorange/utils';
+
 
 class Index extends Component{
     constructor(){
@@ -23,7 +25,10 @@ class Index extends Component{
         this.state={title:'(｡･∀･)ﾉﾞ嗨  主银~~!!'}
     }
     componentWillMount(){
-        ajax({
+        this.setState({nickname:this.props.nickname});
+        console.log(this.state,33333);
+        console.log(utils.readUsers(),666666666);
+        /*ajax({
             method:'get',
             url:'http://localhost:8001/other',
             async:true,
@@ -37,12 +42,12 @@ class Index extends Component{
             });
         }).catch((err)=>{
             console.log(err);
-        });
+        });*/
     }
     render(){
         return (
             <div className="index">
-                <Header title={this.state.title}/>
+                <Header title={this.props.nickname}/>
                 <ReactSwipe className="carousel" swipeOptions={{startSlide: 2,
                     speed: 400,
                     auto: 3000,
@@ -72,8 +77,11 @@ class Index extends Component{
     }
 }
 let mapStateToProps=state=>({
-
+    nickname:state.userReducer.nickname,
+    password:state.userReducer.password
 });
+
+
 let mapDispatchToProps=dispatch=>({
     getUserInfo:(text)=>dispatch({type:"GET_USERINFO",text})
 });

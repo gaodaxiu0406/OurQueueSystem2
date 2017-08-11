@@ -5,6 +5,7 @@ import Header from "../../components/header/Header";
 import {ajax} from '../../util/index.js';
 import {connect} from 'react-redux';
 import Footer from '../../components/footer/Footer';
+import utils from '../../localStorange/utils';
 
 
 class Info extends Component{
@@ -43,7 +44,11 @@ class Info extends Component{
             console.log('click');
     };*/
     componentWillMount(){
-        ajax({
+
+        /*if(utils.readUsers().some((item)=>item.nickname==nickname)){
+            alert('用户名已经被注册')
+        }*/
+        /*ajax({
             method:'get',
             url:'http://localhost:8001/other',
             async:true,
@@ -55,11 +60,16 @@ class Info extends Component{
             // result=result=="undefined"?'我的账号':result.nickname;
         }).catch((err)=>{
             console.log(err);
-        });
+        });*/
     }
     handleClick=()=> {
-        // console.log(this.props, 222222);
-        ajax({
+        console.log(utils.readUsers(),9999999999);
+        if(confirm('确定要退出登录吗？')){
+            this.props.history.push("/signin");
+            this.props.getUserInfo({nickname:'请登录您的账户',password:'',tel:''});
+        }
+
+        /*ajax({
             method: 'get',
             url: 'http://localhost:8001/signin',
             async: true,
@@ -72,7 +82,7 @@ class Info extends Component{
             this.props.getUserInfo({nickname:'请登录您的账户',password:'',tel:''});
         }).catch((err) => {
             console.log(err);
-        });
+        });*/
     };
     render(){
         return (

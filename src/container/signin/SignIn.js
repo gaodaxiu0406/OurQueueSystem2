@@ -11,18 +11,29 @@ import {
     HashRouter as Router,Route,Link,Switch
 } from "react-router-dom";
 import Index from "../index/Index";
+import utils from '../../localStorange/utils';
+
 class SignIn extends Component{
     constructor(){
         super();
         this.state={title:'登录'}
     }
     handleClick=()=>{
-        console.log(this.props,222222);
-        let data={
-            nickname:this.refs.nickname.value,
-            password:this.refs.password.value};
-        // console.log(data,11111111);
-        ajax({
+            let nickname=this.refs.nickname.value;
+            let password=this.refs.password.value;
+        this.props.getUserInfo({nickname:nickname,password:password});
+        if(nickname&&password){
+            if(utils.readUsers().some((item)=>(item.nickname==nickname&&item.password==password))){
+                alert('恭喜您登录成功(*￣︶￣*)!');
+                let nickname=utils.readUsers().filter((item)=>item.nickname==nickname);
+                this.props.history.push("/index");
+            }else{
+                alert('您输入的用户名或密码不存在,请注册后再登录!')
+            }
+        }else{
+            alert("用户名或密码错误")
+        }
+        /*ajax({
             method:'post',
             url:'http://localhost:8001/signin',
             async:true,
@@ -43,7 +54,7 @@ class SignIn extends Component{
             }
         }).catch((err)=>{
             console.log(err);
-        });
+        });*/
     };
     render(){
         return (
