@@ -53,7 +53,7 @@ class Info extends Component{
                     </div>
                     <div className="form-group">
                         <label htmlFor="tel">手机号</label>
-                        <input id="password" type="text" placeholder={this.state.tel}/>
+                        <input id="password" type="text" placeholder={this.props.tel}/>
                     </div>
                     {/*<div className="form-group">
                         <button type="button" onClick={this.handleSubmit} id="register">保存修改</button>
@@ -74,7 +74,8 @@ class Info extends Component{
 }
 let mapStateToProps=state=>({
     nickname:state.userReducer.nickname,
-    password:state.userReducer.password
+    password:state.userReducer.password,
+    tel:state.userReducer.tel
 });
 let mapDispatchToProps=dispatch=>({
     getUserInfo:(text)=>dispatch({type:"GET_USERINFO",text})

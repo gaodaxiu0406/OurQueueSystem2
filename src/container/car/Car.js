@@ -18,9 +18,9 @@ export default  class Car extends Component{
             let carLength=JSON.parse(res).length;
             console.log(carLength,9999999999);
             this.setState({carLength});
-            this.props.addGoods({
-                carLength
-            })
+            // this.props.addGoods({
+            //     carLength
+            // })
         });
     }
     handleClickM=()=>{

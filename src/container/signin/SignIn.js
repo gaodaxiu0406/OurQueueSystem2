@@ -21,8 +21,10 @@ class SignIn extends Component{
     handleClick=()=>{
             let nickname=this.refs.nickname.value;
             let password=this.refs.password.value;
-        utils.saveUser({nickname,password});
-        this.props.getUserInfo({nickname:nickname,password:password});
+        // utils.saveUser({nickname,password});
+        let tel=((utils.readUsers().filter((item)=>item.nickname==nickname)))[0].tel;
+        // console.log(tel,444444444444);
+        this.props.getUserInfo({nickname:nickname,password:password,tel:tel});
         if(nickname&&password){
             if(utils.readUsers().some((item)=>(item.nickname==nickname&&item.password==password))){
                 alert('恭喜您登录成功(*￣︶￣*)!');
