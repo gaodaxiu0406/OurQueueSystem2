@@ -29,8 +29,12 @@ class SignIn extends Component{
             data:data,
             headers:{} }).then((result)=>{
             console.log(result,1111111);
-            result=JSON.parse(result);
+
+            if(!result){
+                alert('您输入的用户名或密码不存在,请注册后再登录!')
+            }
             if(result.nickname==data.nickname&&result.password==data.password){
+                result=JSON.parse(result);
                 this.props.getUserInfo(result);
                 this.props.history.push("/index");
                 alert('恭喜您登录成功(*￣︶￣*)!')
