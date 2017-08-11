@@ -17,8 +17,15 @@ class Info extends Component{
         // console.log(utils.readUsers(),9999999999);
         console.log(this.props.nickname,3333333333);
         if(confirm('确定要退出登录吗？')){
-            // this.props.history.push("/signin");
+            this.props.history.push("/signin");
             this.props.getUserInfo({nickname:'请登录您的账户',password:'',tel:''});
+        }
+    };
+    handleClick1=()=> {
+        if(confirm('欢迎进入登录页面(*￣︶￣*)!  ==>如果您还没有注册账号请点击取消进入注册页面哦~')){
+            this.props.history.push("/signin");
+        }else{
+            this.props.history.push("/signup");
         }
     };
     render(){
@@ -53,7 +60,7 @@ class Info extends Component{
                     </div>*/}
                     {
                         (this.props.nickname=="(｡･∀･)ﾉﾞ嗨  主银~~!!")||this.props.nickname=="请登录您的账户"?<div className="form-group">
-                            <button type="button" id="register">您还没有登录哦~</button>
+                            <button onClick={this.handleClick1} type="button" id="register">您还没有登录哦~</button>
                         </div>:<div className="form-group">
                             <button type="button" onClick={this.handleClick} id="register">退出登录</button>
                         </div>
