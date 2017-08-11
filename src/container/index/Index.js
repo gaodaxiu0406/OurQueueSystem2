@@ -17,6 +17,7 @@ import ItemDetail from "../../container/itemDetail/ItemDetail";
 import {connect} from "react-redux";
 import HotList from "../hotlist/HotList";
 import utils from '../../localStorange/utils';
+import sun from '../../img/遮阳棚.png'
 
 
 class Index extends Component{
@@ -24,10 +25,10 @@ class Index extends Component{
         super();
         this.state={title:'(｡･∀･)ﾉﾞ嗨  主银~~!!'}
     }
-    componentWillMount(){
-        this.setState({nickname:this.props.nickname});
-        console.log(this.state,33333);
-        console.log(utils.readUsers(),666666666);
+    componentDidMount(){
+        console.log(utils.readUsers());
+        // console.log((JSON.parse(localStorage.users)).filter((item)=>item.nickname==this.props.nickname)[0].nickname,22222222)
+        console.log(this.props.nickname);
         /*ajax({
             method:'get',
             url:'http://localhost:8001/other',
@@ -47,7 +48,9 @@ class Index extends Component{
     render(){
         return (
             <div className="index">
-                <Header title={this.props.nickname}/>
+                {
+                    this.state.title=='(｡･∀･)ﾉﾞ嗨  主银~~!!'?<Header title={this.props.nickname}/>:<Header title={(utils.readUsers().filter((item)=>item.nickname==this.props.nickname))[0].nickname}/>
+                }
                 <ReactSwipe className="carousel" swipeOptions={{startSlide: 2,
                     speed: 400,
                     auto: 3000,
@@ -61,14 +64,14 @@ class Index extends Component{
                     <div><img src={o4}/></div>
                 </ReactSwipe>
                 {
-                    (this.state.title=='(｡･∀･)ﾉﾞ嗨  主银~~!!')||(this.state.title=='请登录您的账户')?<div className="sing">
+                    this.props.nickname=='(｡･∀･)ﾉﾞ嗨  主银~~!!'?<div className="sing">
                         <p>立即登录查看最新优惠券</p>
                         <Link to="/signup">注册</Link>
                         <Link to="/signin">登录</Link>
                     </div>:''
                 }
-                <div>
-                    <p className="toDayList">~≈今日热卖≈~</p>
+                <div className="today">
+                    <p className="toDayList"><img src={sun} alt=""/><span>今 日 热 卖</span></p>
                     <HotList/>
                 </div>
 

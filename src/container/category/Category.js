@@ -23,6 +23,12 @@ export default  class Category extends Component{
     render(){
         return (
             <div className="foodMenu">
+                <form>
+                    <label htmlFor="search">
+                        <input id="search" type="text" placeholder="   主银~想吃啥??? (●ﾟωﾟ●)"/><button>检索</button>
+                    </label>
+                </form>
+
                 <ReactSwipe className="carousel" swipeOptions={{startSlide: 2,
                     speed: 400,
                     auto: 3000,
@@ -36,11 +42,6 @@ export default  class Category extends Component{
                     <div><img src={o4}/></div>
                 </ReactSwipe>
                 <Header title={this.state.title}/>
-                <form>
-                    <label htmlFor="search">
-                        <input id="search" type="text" placeholder="主银~想吃啥??? (●ﾟωﾟ●)"/><button>检索</button>
-                    </label>
-                </form>
                 <div className="menu">
                 <Link to="/category/histroy">以前吃过</Link>
                 <Link to="/category/favorite">我最喜爱</Link>

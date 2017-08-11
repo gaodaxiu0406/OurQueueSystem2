@@ -23,11 +23,6 @@ export default  class SignUp extends Component{
         let tel=this.refs.tel.value;
         let password=this.refs.password.value;
         let cpwd=this.refs.cpwd.value;
-        // if(nickname&&password&&cpwd&&tel){
-           /* if(!(utils.readUsers().some((item)=>((item.nickname!=nickname)&&(item.tel!=tel))))){
-                utils.saveUser({nickname,tel,password,cpwd});
-            }*/
-            // console.log((utils.readUsers().some((item)=>item.nickname!=nickname)),12345123123);
             if(utils){
                 if(nickname&&password&&cpwd&&tel){
                     console.log(1);
@@ -40,7 +35,7 @@ export default  class SignUp extends Component{
                     }else if(!(password===cpwd)){
                         alert('两次输入的密码不匹配o(╥﹏╥)o')
                     }else if(password.length<6){
-                        alert('请输入6位以上的密码哦~')
+                        alert('请输入6位或6位以上的密码哦~')
                     }else{
                         utils.saveUser({nickname,tel,password,cpwd});
                         this.props.history.push('/signin');

@@ -13,76 +13,12 @@ class Info extends Component{
         super();
         this.state={title:'我的账号'}
     }
-    // handleClick(){
-    //     ajax({
-    //         method:'post',
-    //         url:'http://localhost:8000/info',
-    //         async:true,
-    //         data:{
-    //             name:"aa"
-    //         },
-    //         headers:{} }).then((result)=>{
-    //         console.log(result);
-    //     }).catch((err)=>{
-    //         console.log(err);
-    //     });
-    //     console.log('click');
-    // }
-/*    handleSubmit=()=>{
-        ajax({
-                method:'post',
-                url:'http://localhost:8000/signin',
-                async:true,
-                data:{
-                    name:"aa"
-                },
-                headers:{} }).then((result)=>{
-                console.log(result,333333);
-            }).catch((err)=>{
-                console.log(err);
-            });
-            console.log('click');
-    };*/
-    componentWillMount(){
-
-        /*if(utils.readUsers().some((item)=>item.nickname==nickname)){
-            alert('用户名已经被注册')
-        }*/
-        /*ajax({
-            method:'get',
-            url:'http://localhost:8001/other',
-            async:true,
-            headers:{} }).then((result)=>{
-            console.log(result,1111111);
-            result=JSON.parse(result);
-            this.setState(result);
-            this.props.getUserInfo(result);
-            // result=result=="undefined"?'我的账号':result.nickname;
-        }).catch((err)=>{
-            console.log(err);
-        });*/
-    }
     handleClick=()=> {
         console.log(utils.readUsers(),9999999999);
         if(confirm('确定要退出登录吗？')){
             this.props.history.push("/signin");
             this.props.getUserInfo({nickname:'请登录您的账户',password:'',tel:''});
         }
-
-        /*ajax({
-            method: 'get',
-            url: 'http://localhost:8001/signin',
-            async: true,
-            headers: {}
-        }).then((result) => {
-            // result = JSON.parse(result);
-            console.log(result,222222);
-            alert('您已退出登录！');
-            this.props.history.push("/signin");
-            this.props.getUserInfo({nickname:'请登录您的账户',password:'',tel:''});
-        }).catch((err) => {
-            console.log(err);
-        });*/
     };
     render(){
         return (
@@ -92,7 +28,7 @@ class Info extends Component{
 
                     <div className="form-group">
                         <label htmlFor="name">昵称</label>
-                        <input id="name" name="name" type="text" placeholder={this.state.nickname}/>
+                        <input id="name" name="name" type="text" placeholder={this.props.nickname}/>
                     </div>
                     <div className="form-group form-group-sex">
                         <label htmlFor="name">性别</label>
@@ -104,7 +40,7 @@ class Info extends Component{
                     <div className="form-group">
                         <label htmlFor="password">密码</label>
                         {
-                            this.state.password?<input id="password" type="password" placeholder={"提示 您的密码长度为:"+this.state.password.length+"位"}/>:<input id="password" type="password" placeholder=''/>
+                            this.props.password?<input id="password" type="password" placeholder={"提示 您的密码长度为:"+this.props.password.length+"位"}/>:<input id="password" type="password" placeholder=''/>
                         }
                     </div>
                     <div className="form-group">
@@ -124,9 +60,8 @@ class Info extends Component{
     }
 }
 let mapStateToProps=state=>({
-    /*nickname:state.nickname,
-    password:state.password,
-    tel:state.tel*/
+    nickname:state.userReducer.nickname,
+    password:state.userReducer.password
 });
 let mapDispatchToProps=dispatch=>({
     getUserInfo:(text)=>dispatch({type:"GET_USERINFO",text})

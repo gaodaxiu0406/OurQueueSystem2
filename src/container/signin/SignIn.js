@@ -21,11 +21,11 @@ class SignIn extends Component{
     handleClick=()=>{
             let nickname=this.refs.nickname.value;
             let password=this.refs.password.value;
+        utils.saveUser({nickname,password});
         this.props.getUserInfo({nickname:nickname,password:password});
         if(nickname&&password){
             if(utils.readUsers().some((item)=>(item.nickname==nickname&&item.password==password))){
                 alert('恭喜您登录成功(*￣︶￣*)!');
-                let nickname=utils.readUsers().filter((item)=>item.nickname==nickname);
                 this.props.history.push("/index");
             }else{
                 alert('您输入的用户名或密码不存在,请注册后再登录!')
