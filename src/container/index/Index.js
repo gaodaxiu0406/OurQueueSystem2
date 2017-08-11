@@ -64,7 +64,7 @@ class Index extends Component{
                     <div><img src={o4}/></div>
                 </ReactSwipe>
                 {
-                    this.props.nickname==('(｡･∀･)ﾉﾞ嗨  主银~~!!')||('请登录您的账户')?<div className="sing">
+                    (this.props.nickname=='(｡･∀･)ﾉﾞ嗨  主银~~!!')||(this.props.nickname=='请登录您的账户')?<div className="sing">
                         <p>立即登录查看最新优惠券</p>
                         <Link to="/signup">注册</Link>
                         <Link to="/signin">登录</Link>
