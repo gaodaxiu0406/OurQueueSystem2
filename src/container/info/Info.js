@@ -14,9 +14,10 @@ class Info extends Component{
         this.state={title:'我的账号'}
     }
     handleClick=()=> {
-        console.log(utils.readUsers(),9999999999);
+        // console.log(utils.readUsers(),9999999999);
+        console.log(this.props.nickname,3333333333);
         if(confirm('确定要退出登录吗？')){
-            this.props.history.push("/signin");
+            // this.props.history.push("/signin");
             this.props.getUserInfo({nickname:'请登录您的账户',password:'',tel:''});
         }
     };
@@ -50,9 +51,14 @@ class Info extends Component{
                     {/*<div className="form-group">
                         <button type="button" onClick={this.handleSubmit} id="register">保存修改</button>
                     </div>*/}
-                    <div className="form-group">
-                        <button type="button" onClick={this.handleClick} id="register">退出登录</button>
-                    </div>
+                    {
+                        (this.props.nickname=="(｡･∀･)ﾉﾞ嗨  主银~~!!")||this.props.nickname=="请登录您的账户"?<div className="form-group">
+                            <button type="button" id="register">您还没有登录哦~</button>
+                        </div>:<div className="form-group">
+                            <button type="button" onClick={this.handleClick} id="register">退出登录</button>
+                        </div>
+                    }
+
                 </form>
 
             </div>
