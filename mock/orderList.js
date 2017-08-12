@@ -6,7 +6,8 @@ module.exports = [
         title: '紫米粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 2,
@@ -14,7 +15,8 @@ module.exports = [
         title: '皮蛋瘦肉粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 3,
@@ -22,14 +24,16 @@ module.exports = [
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
-        commentState: 2
+        commentState: 2,
+        num:1
     }, {
         id: 4,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ module.exports = [
         title: '鸡丝木耳粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 6,
@@ -45,7 +50,8 @@ module.exports = [
         title: '紫米粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 7,
@@ -53,7 +59,8 @@ module.exports = [
         title: '皮蛋瘦肉粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 8,
@@ -61,14 +68,16 @@ module.exports = [
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
-        commentState: 2
+        commentState: 2,
+        num:1
     }, {
         id: 9,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 10,
@@ -76,7 +85,8 @@ module.exports = [
         title: '鸡丝木耳粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 11,
@@ -84,7 +94,8 @@ module.exports = [
         title: '紫米粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 12,
@@ -92,7 +103,8 @@ module.exports = [
         title: '皮蛋瘦肉粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 13,
@@ -100,14 +112,16 @@ module.exports = [
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
-        commentState: 2
+        commentState: 2,
+        num:1
     }, {
         id: 14,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 15,
@@ -115,7 +129,8 @@ module.exports = [
         title: '鸡丝木耳粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 16,
@@ -123,7 +138,8 @@ module.exports = [
         title: '紫米粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 17,
@@ -131,7 +147,8 @@ module.exports = [
         title: '皮蛋瘦肉粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 18,
@@ -139,14 +156,16 @@ module.exports = [
         title: '飘香茶泡饭',
         count: 2,
         price: '110',
-        commentState: 2
+        commentState: 2,
+        num:1
     }, {
         id: 19,
         img: '../src/img/图层 5.png',
         title: '咸香鸡蛋粥',
         count: 3,
         price: '167',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
     {
         id: 20,
@@ -154,7 +173,8 @@ module.exports = [
         title: '鸡丝木耳粥',
         count: 1,
         price: '188',
-        commentState: 0
+        commentState: 0,
+        num:1
     },
 
 ]

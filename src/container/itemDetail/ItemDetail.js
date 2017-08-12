@@ -1,6 +1,3 @@
-/**
- * Created by ZhaoQiHui on 2017/8/7.
- */
 import React,{Component} from "react";
 import {connect} from "react-redux";
 import {
@@ -11,7 +8,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import './itemDetail.less'
 import comment from '../../../mock/comment'
- class ItemDetail extends Component{
+class ItemDetail extends Component{
     constructor(){
         super();
         this.state={title:'食品详情'}
@@ -35,7 +32,9 @@ import comment from '../../../mock/comment'
             method:'get',
             url:'http://localhost:8001/car',
         }).then((res)=>{
-            let carLength=JSON.parse(res).length;
+            let goods=JSON.parse(res).reduce((sum,value)=>(sum+value.num),0);
+            let carLength=goods;
+
             console.log(carLength,9999999999);
             this.setState({carLength});
             this.props.addGoods({
@@ -45,58 +44,56 @@ import comment from '../../../mock/comment'
         ajax({
             method:'post',
             url:'http://localhost:8001/additem',
-            data:{
-                item
-            }
+            data:{item}
         }).then((res)=>{
             let Counter=JSON.parse(res).length
         })
-};
+    };
     render(){
-       if (this.props.location.state){
-           return (
-               <div className="itemDetail">
-                   <Header state={this.state.title}/>
-                   <div className="itemPhoto">
-                       <img src={this.props.location.state.img}/>
-                   </div>
-                   <div className="itemAdd">
-                   <div className="AddInCar">
-                       <strong>
-                           {this.props.location.state.title}
-                       </strong>
-                       <p>
-                    $<span>{this.props.location.state.price}</span>
-                </p>
+        if (this.props.location.state){
+            return (
+                <div className="itemDetail">
+                    <Header state={this.state.title}/>
+                    <div className="itemPhoto">
+                        <img src={this.props.location.state.img}/>
+                    </div>
+                    <div className="itemAdd">
+                        <div className="AddInCar">
+                            <strong>
+                                {this.props.location.state.title}
+                            </strong>
+                            <p>
+                                $<span>{this.props.location.state.price}</span>
+                            </p>
 
-                           <i onClick={this.itemAdd}>+</i>
-                   </div>
-                   <div className="comment">
-                       <strong>商品评价</strong><span>(好评率98%)</span>
-                       <ul>
-                           {
-                               comment.data.map((item,index)=>{
-                                   return(<li key={index} className="commentList">
-                                        <p>{item.username}</p>
-                                        <span>{item.comment}</span>
-                                       <p className="start">评级  {
-                                        this.toStarArr(item.star).map((item,index)=>{
-                                            if(item){
-                                                return <span key={index} className="active"></span>
-                                            }else{
-                                                return <span key={index}></span>
-                                            }
-                                        })
-                                       }</p>
-                                   </li>)
-                               })
-                           }
-                       </ul>
-                   </div></div>
-                   {/*<Footer length={this.state.carLength}/>*/}
-               </div>
-           )
-       }else {
+                            <i onClick={this.itemAdd}>+</i>
+                        </div>
+                        <div className="comment">
+                            <strong>商品评价</strong><span>(好评率98%)</span>
+                            <ul>
+                                {
+                                    comment.data.map((item,index)=>{
+                                        return(<li key={index} className="commentList">
+                                            <p>{item.username}</p>
+                                            <span>{item.comment}</span>
+                                            <p className="start">评级  {
+                                                this.toStarArr(item.star).map((item,index)=>{
+                                                    if(item){
+                                                        return <span key={index} className="active"></span>
+                                                    }else{
+                                                        return <span key={index}></span>
+                                                    }
+                                                })
+                                            }</p>
+                                        </li>)
+                                    })
+                                }
+                            </ul>
+                        </div></div>
+                    {/*<Footer length={this.state.carLength}/>*/}
+                </div>
+            )
+        }else {
             return(
                 <div>
                     <p className="noContent">
@@ -105,7 +102,7 @@ import comment from '../../../mock/comment'
                     </p>
                 </div>
             )
-       }
+        }
 
     }
 }

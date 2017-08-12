@@ -46,6 +46,36 @@ app.get('/list',(req,res)=>{
     let data=fs.readFileSync(path.resolve('../mock/orderList.js'),'utf-8');
     res.send(data)
 });
+
+app.post('/additem',(req,res)=>{
+    let car=JSON.parse(fs.readFileSync(path.resolve('../mock/api/Car.json'),'utf-8'));
+    let id=req.body.item.id
+
+    ;
+    let goods=car.find((item)=>item.id==id);
+    console.log("nnnnn");
+    if(req.body.flag){
+        console.log("mmmm");
+        car=car.map((item)=>{
+            item.id==id?item.num=item.num-1:null;
+            return item
+        });
+        fs.writeFileSync('../mock/api/Car.json',JSON.stringify(car));
+        res.send(car);
+        return
+    }
+    if(goods){
+        car=car.map((item)=>{
+            item.id==id?item.num=item.num+1:null;
+            return item
+        })
+    }else{
+        car.push(req.body.item)
+    }
+    fs.writeFileSync('../mock/api/Car.json',JSON.stringify(car));
+    res.send(car)
+});
+
 app.post('/additem',(req,res)=>{
     let car=JSON.parse(fs.readFileSync(path.resolve('../mock/api/Car.json'),'utf-8'));
     car.push(req.body.item);
