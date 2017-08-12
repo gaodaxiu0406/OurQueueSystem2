@@ -30,7 +30,7 @@ class Info extends Component{
     };
     render(){
         return (
-            <div>
+            <div className="MyInfo">
                 <Header title={this.state.title}/>
                 <form id="form" method="post" action="submit">
 

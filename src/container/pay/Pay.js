@@ -1,8 +1,9 @@
 
 import React,{Component} from "react";
 import Header from "../../components/header/Header";
-import './pay.less'
-export default  class Pay extends Component{
+import './pay.less';
+import {connect} from 'react-redux';
+class Pay extends Component{
     constructor(){
         super();
         this.state={title:'支付页'}
@@ -21,17 +22,19 @@ export default  class Pay extends Component{
         this.props.history.push('/car');
     };
     render(){
+        // console.log(this.props.totalPrice,66666666666666666);
+        console.log(this.props.time,666666);
         return (
             <div>
                 <Header title={this.state.title}/>
                 <div className="pay">
                     <div className="price">
                         <span>合计需付款</span>
-                        <span>price</span>
+                        <span>{this.props.totalPrice}</span>
                     </div>
                     <div className="money">
-                        <p>请输入您的付款金额</p>
-                        <input type="number"/>
+                        <span>请确认您的到店时间:</span>
+                        <span>{this.props.time}</span>
                     </div>
                     <div className="message">
                         <span>
@@ -47,3 +50,11 @@ export default  class Pay extends Component{
         )
     }
 }
+let mapStateToProps=state=>({
+    totalPrice:state.goodsReducer.totalPrice,
+    time:state.getTime.time,
+    nickname:state.userReducer.nickname
+});
+let mapDispatchToProps=dispatch=>({
+});
+export default connect(mapStateToProps,mapDispatchToProps)(Pay)

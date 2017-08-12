@@ -48,11 +48,14 @@
     margin: 0 auto;
     border: 1px solid #ccc;
     span{
-      display: inline-block;
-      margin-left: 10px;
-      width:40%;
       &:nth-child(1){
+        width:40%;
+        margin-left: 10px;
+      }
 
+      &:nth-child(2){
+        width: 20%;
+        float: right;
       }
     }
 
@@ -72,6 +75,12 @@
 
     }
     input{
+      float: right;
+      margin-right: 15px;
+      margin-top: 10px;
+      width: 12%;
+      height: 30px;
+      padding: 0 20px;
       border-radius: 5px;
       border: 1px solid orange;
     }

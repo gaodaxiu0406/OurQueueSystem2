@@ -60,7 +60,7 @@ class SignIn extends Component{
     };
     render(){
         return (
-            <div>
+            <div className="signIn">
                 <Header title={this.state.title}/>
                 <img className="avatar" src="../../../static/img/avatar.png" alt="个人头像"/>
                 <form id="form" method="get">
